@@ -1,6 +1,8 @@
 package com.csc439teamFlamingo.cardgame;
 
-public class creatCrad{
+
+
+public class creatCard extends card{
 
     private int cardNumber,color,upORdown;
 
@@ -17,7 +19,7 @@ public class creatCrad{
 
      */
 
-    public creatCrad(int upORdown,int color,int cardNumber){
+    public creatCard(int upORdown,int color,int cardNumber) {
 
         this.upORdown = upORdown;
         this.color = color;
@@ -26,36 +28,36 @@ public class creatCrad{
 
     }
 
-
-
-
-    public boolean isRed() {
+    public Boolean isRed() {
         if(color == 0)
             return true;
         else
             return false;
     }
 
-    public boolean isBlack(){
+    public Boolean isBlack(){
         if(color == 1)
             return true;
         else
             return false;
     }
 
-    public boolean isFaceDown(){
+    public Boolean isFaceDown(){
         if(upORdown == 1)
             return true;
         else
             return false;
     }
 
+    @Override
+    void compareTo() {
 
+    }
 
-
-
-
-
+    @Override
+    int getCardNumber() {
+        return 0;
+    }
 
 
 }
