@@ -8,8 +8,6 @@ abstract class card {
 
     abstract Boolean isFaceDown();
 
-    abstract void compareTo();
-
     abstract int getCardNumber();
 
 

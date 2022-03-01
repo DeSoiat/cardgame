@@ -17,6 +17,13 @@ public class creatCard extends card{
 
     0 - clubs black, 1 - spades black, 2 - heart red 3 - diamond red
 
+    0 = ace
+    1 - 9
+    10 = jack
+    11 = queen
+    12 = king
+
+
     For card number 0 - 12
 
      */
@@ -51,12 +58,16 @@ public class creatCard extends card{
             return false;
     }
 
-    @Override
-    void compareTo() {
 
+    public int compareTo(creatCard other) {
 
-
-
+        if(this.getCardNumber() > other.getCardNumber()){
+            return 1;
+        }
+        else if (this.getCardNumber() < other.getCardNumber())
+                return -1;
+        else
+            return 0;
 
     }
 
