@@ -1,6 +1,10 @@
 package com.csc439teamFlamingo.cardgame;
 
-
+/**
+ *
+ * Create card object with suit and card number extends abstract method from card class
+ *
+ */
 
 public class creatCard extends card{
 
@@ -8,24 +12,18 @@ public class creatCard extends card{
 
     /*
     For color
-    0 = red
-    1 = black
+    0 - clubs black, 1 - spades black, 2 - heart red 3 - diamond red
 
     For face up or down
     0 = up
     1 = down
 
-    0 - clubs black, 1 - spades black, 2 - heart red 3 - diamond red
-
+    For card number 0 - 12
     0 = ace
     1 - 9
     10 = jack
     11 = queen
     12 = king
-
-
-    For card number 0 - 12
-
      */
 
     public creatCard(int upORdown,int suit,int cardNumber) {
