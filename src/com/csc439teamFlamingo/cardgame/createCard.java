@@ -6,7 +6,7 @@ package com.csc439teamFlamingo.cardgame;
  *
  */
 
-public class creatCard extends card{
+public class createCard extends card{
 
     private int cardNumber,suit,upORdown;
 
@@ -26,7 +26,7 @@ public class creatCard extends card{
     12 = king
      */
 
-    public creatCard(int upORdown,int suit,int cardNumber) {
+    public createCard(int upORdown, int suit, int cardNumber) {
 
         this.upORdown = upORdown;
         this.suit = suit;
@@ -56,8 +56,11 @@ public class creatCard extends card{
             return false;
     }
 
+    public int getSuit(){
+        return suit;
+    }
 
-    public int compareTo(creatCard other) {
+    public int compareTo(createCard other) {
 
         if(this.getCardNumber() > other.getCardNumber()){
             return 1;
