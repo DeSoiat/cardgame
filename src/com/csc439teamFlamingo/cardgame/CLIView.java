@@ -5,13 +5,10 @@ package com.csc439teamFlamingo.cardgame;
  */
 
 public class CLIView implements View {
-    @Override
-    public String promptUser() {
-        return null;
-    }
 
     @Override
-    public String recieveUserInput() {
+    public void displayTitleScreen() {
+        System.out.println("");
         return null;
     }
 }
