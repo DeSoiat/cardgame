@@ -95,12 +95,20 @@ public class Card {
         return cardNumber;
     }
 
-    public void setUpORdown(int val) {
-        upORdown = val;
+    public void flipCard() {
+        if(upORdown == 0) {
+            upORdown = 1;
+        }
+        else {
+            upORdown = 0;
+        }
     }
 
     @Override
     public String toString() {
+        if(isFaceDown()) {
+            return "Back";
+        }
         StringBuilder c = new StringBuilder();
         switch(this.cardNumber) {
             case 0:

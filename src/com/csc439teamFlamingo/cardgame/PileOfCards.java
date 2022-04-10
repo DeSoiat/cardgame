@@ -35,8 +35,6 @@ public class PileOfCards {
 
     public Card drawCard() {
         Card drawnCard = cards.pop();
-        assert cards.peekFirst() != null;
-        cards.peekFirst().setUpORdown(0);
         return drawnCard;
     }
 
