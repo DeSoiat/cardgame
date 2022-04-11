@@ -62,8 +62,6 @@ public class Card {
 
     public int compareTo(Card other) {
 
-        System.out.println("1");
-
         if(this.getCardNumber() > other.getCardNumber()){
             return 1;
         }
