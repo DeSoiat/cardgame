@@ -76,6 +76,21 @@ public class Player {
 
     }
 
+    public void ask(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("draw card from draw pile or discard pile ?");
+        if(in.nextLine()=="draw pile"){
+            Card newCard = new PileOfCards().drawCard(new PileOfCards().returnDrawPile());
+            replace(newCard,hand,new PileOfCards().returnDiscardPile());
+        }else{
+            Card newCard2 = new PileOfCards().drawDiscardPile(new PileOfCards().returnDiscardPile());
+            replace(newCard2,hand,new PileOfCards().returnDiscardPile());
+        }
+
+
+
+    }
+
 
 
 
