@@ -1,4 +1,7 @@
 package com.csc439teamFlamingo.cardgame;
 
-public class Main {
+public class Main{
+
+
+
 }
