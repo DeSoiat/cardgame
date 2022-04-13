@@ -18,7 +18,6 @@ public class Controller {
         Random rand = new Random();
         int random = rand.nextInt(index);
         players[random].setMyTurn(true);
-
         return random;
 
     }
@@ -28,7 +27,7 @@ public class Controller {
 
         int index = 0;
 
-        for (int i = 0; i < players.length - 1; i++) {
+        for (int i = 0; i <= players.length - 1; i++) {
 
             if (players[i].isMyTurn())
                 index = i;
@@ -40,13 +39,18 @@ public class Controller {
 
     public void turnPassing(Player[] players){
 
+        int check = currentPlayer(players);
         int index = currentPlayer(players);
 
-        if(players[index+1] != null){
+        if(check+1 < players.length){
+            players[index].setMyTurn(false);
             players[index+1].setMyTurn(true);
         }
-        else
+        else{
+            players[index].setMyTurn(false);
             players[0].setMyTurn(true);
+        }
+
 
     }
 
