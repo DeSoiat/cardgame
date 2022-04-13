@@ -65,8 +65,9 @@ public class CLIView implements View {
         System.out.println("draw card from draw pile or discard pile ? ");
         System.out.println("Enter the pile you wanna draw : ");
         Scanner in = new Scanner(System.in);
-        if(in.next().equals("draw pile"))
+        if(in.next().equals("draw pile")){
             action = "draw pile";
+        }
         else if(in.next().equals("discard pile"))
             action = "discard pile";
         else
