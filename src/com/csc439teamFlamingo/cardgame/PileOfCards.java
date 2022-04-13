@@ -1,13 +1,13 @@
 package com.csc439teamFlamingo.cardgame;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
  * This is for the draw/discard piles.
  */
 public class PileOfCards {
+
     private LinkedList<Card> cards = new LinkedList<>();
 
     public PileOfCards(int numPlayers, boolean isDrawPile) {
@@ -33,9 +33,17 @@ public class PileOfCards {
         return cards;
     }
 
-    public Card drawCard() {
-        Card drawnCard = cards.pop();
-        return drawnCard;
+    public LinkedList<Card> returnDrawPile(){
+        return cards;
+    }
+
+
+    public Card drawCard(){
+
+        Card newCard = cards.getFirst();
+        cards.removeFirst();
+        return newCard;
+
     }
 
     public void shufflePile() {
@@ -56,24 +64,15 @@ public class PileOfCards {
         pile.set(indexTwo, tc);
     }
 
-    public void discardCard(Card discardedCard) {
-        cards.push(discardedCard);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder pileString = new StringBuilder("{");
-        for(int x = 0; x < cards.size(); x++) {
-            pileString.append("\"").append(cards.get(x)).append("\"");
-            if(x < cards.size()-1) {
-                pileString.append(", ");
-            }
+    public void displayDrawPile(){
+        System.out.print("displayDrawPile : ");
+        for(int i=0;i < cards.size();i++){
+            System.out.print(cards.get(i).getCardNumber()+" ");
         }
-        pileString.append("}");
-        return pileString.toString();
     }
 
     public LinkedList<Card> getCards() {
         return cards;
     }
+
 }
