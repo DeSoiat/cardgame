@@ -67,13 +67,17 @@ public class Player {
     public String Action(){
         String action = " ";
         System.out.println("Action you can take");
-        System.out.print("Hit, Stand");
+        System.out.print("Hit, Stand, Quit");
         System.out.println("Enter the action you wanna take : ");
         Scanner in = new Scanner(System.in);
         if(in.next().equals("Hit"))
             action = "Hit";
         else if(in.next().equals("Stand"))
             action = "Stand";
+        else if(in.next().equals("Quit")) {
+            action = "Quit";
+            Controller.removePlayer();
+        }
         else
             action = "invalid move";
 
@@ -97,6 +101,7 @@ public class Player {
         discardPile.add(0,discard);
 
         this.displayHand();
+        Controller.turnPassing(Controller.getPlayers());
 
     }
 
