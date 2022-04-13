@@ -8,7 +8,7 @@ package com.csc439teamFlamingo.cardgame;
 
 public class Card {
 
-    private int cardNumber,suit,upORdown;
+    private int cardNumber,suit,upORdown,score;
 
     /*
     For color
@@ -20,19 +20,34 @@ public class Card {
 
     For card number 0 - 12
     0 = ace
-    1 - 9
+    1 - 9 = add one for card number
     10 = jack
     11 = queen
     12 = king
      */
 
     public Card(int upORdown, int suit, int cardNumber) {
-
         this.upORdown = upORdown;
         this.suit = suit;
         this.cardNumber = cardNumber;
-
-
+        switch(cardNumber) {
+            case 0:
+                this.score = 1;
+                break;
+            case 1:
+                this.score = -2;
+                break;
+            case 10:
+            case 11:
+                this.score = 10;
+                break;
+            case 12:
+                this.score = 0;
+                break;
+            default:
+                this.score = cardNumber+1;
+                break;
+        }
     }
 
     public Boolean isRed() {
@@ -72,11 +87,66 @@ public class Card {
 
     }
 
+    public int getCardScore() {
+        return score;
+    }
 
-
-    int getCardNumber() {
+    public int getCardNumber() {
         return cardNumber;
     }
 
+    public void flipCard() {
+        if(upORdown == 0) {
+            upORdown = 1;
+        }
+        else {
+            upORdown = 0;
+        }
+    }
 
+    @Override
+    public String toString() {
+        if(isFaceDown()) {
+            return "Back";
+        }
+        StringBuilder c = new StringBuilder();
+        switch(this.cardNumber) {
+            case 0:
+                c.append("A");
+                break;
+            case 10:
+                c.append("J");
+                break;
+            case 11:
+                c.append("Q");
+                break;
+            case 12:
+                c.append("K");
+                break;
+            default:
+                c.append(this.cardNumber + 1);
+        }
+        String color = "R";
+        if(this.isBlack()) {
+            color = "B";
+        }
+        c.append(" ").append(color);
+        String s = "";
+        switch(this.suit) {
+            case 0:
+                s = "clb";
+                break;
+            case 1:
+                s = "spd";
+                break;
+            case 2:
+                s = "hrt";
+                break;
+            case 3:
+                s = "Dia";
+                break;
+        }
+        c.append(" ").append(s);
+        return c.toString();
+    }
 }
