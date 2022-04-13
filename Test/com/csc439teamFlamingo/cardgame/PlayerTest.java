@@ -9,8 +9,7 @@ class PlayerTest {
     @Test
     void setMyTurn() {
         Player[] players = new Player[3];
-        Card[]hand = new Card[0];
-        players[0] = new Player(0,hand);
+        players[0] = new Player(0);
         players[0].setMyTurn(true);
         assert (players[0].isMyTurn() == true);
         players[0].setMyTurn(false);
@@ -24,7 +23,7 @@ class PlayerTest {
 
         Player[] players = new Player[3];
         Card[]hand = new Card[0];
-        players[0] = new Player(0,hand);
+        players[0] = new Player(0);
         players[0].setMyTurn(true);
         assert (players[0].isMyTurn() == true);
         players[0].setMyTurn(false);
@@ -40,8 +39,8 @@ class PlayerTest {
         hand[0] = new Card(0,0,0);
         hand[1] = new Card(0,0,1);
         hand[2] = new Card(0,0,2);
-        players[0] = new Player(0,hand);
-        players[0].displayHand();
+        players[0] = new Player(0);
+        //players[0].displayHand();
 
 
 
