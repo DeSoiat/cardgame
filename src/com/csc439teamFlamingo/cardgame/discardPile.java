@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 
 public class discardPile {
-    private LinkedList<Card> discardPile = new LinkedList<>();
+    private static LinkedList<Card> discardPile = new LinkedList<>();
 
     discardPile(LinkedList<Card> cardPile){
         this.discardPile = cardPile;
@@ -18,7 +18,7 @@ public class discardPile {
         return discardPile;
     }
 
-    public Card drawDiscard(){
+    public static Card drawDiscard(){
 
         Card newCard = discardPile.getFirst();
         discardPile.removeFirst();

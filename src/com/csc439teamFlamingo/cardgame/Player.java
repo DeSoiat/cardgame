@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Player {
     public Card[][] hand = new Card[2][3];
     private int playerNum;
+    private boolean isDiscard;
+    private Card card;
 
     public Player(int player) {
         playerNum = player;
@@ -13,6 +15,12 @@ public class Player {
 
     public void draw(PileOfCards pile, int row, int column) {
         hand[row][column] = pile.drawCard();
+    }
+
+    public void drawDiscard(int row, int column){
+        hand[row][column] = discardPile.drawDiscard();
+        card = hand[row][column];
+        isDiscard = true;
     }
 
     public void flipCard(int row, int column) {
@@ -67,13 +75,17 @@ public class Player {
     public String Action(){
         String action = " ";
         System.out.println("Action you can take");
-        System.out.print("Hit, Stand");
+        System.out.print("Hit, Stand, Quit");
         System.out.println("Enter the action you wanna take : ");
         Scanner in = new Scanner(System.in);
         if(in.next().equals("Hit"))
             action = "Hit";
         else if(in.next().equals("Stand"))
             action = "Stand";
+        else if(in.next().equals("Quit")) {
+            action = "Quit";
+            Controller.removePlayer();
+        }
         else
             action = "invalid move";
 
@@ -91,12 +103,21 @@ public class Player {
         index = input.nextInt();
 
         Card discard = hand[index];
+        if (isDiscard && (discard == card)){
+            System.out.println("Cant discard a card you just drew from the discard pile.");
+            replace(newCard, hand, discardPile);
+        }
+        else {
+            discardPile.add(0,discard);
+        }
+
 
         hand[index] = newCard;
 
-        discardPile.add(0,discard);
+
 
         this.displayHand();
+        Controller.turnPassing(Controller.getPlayers());
 
     }
 

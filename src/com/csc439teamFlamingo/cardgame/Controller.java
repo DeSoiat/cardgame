@@ -7,7 +7,7 @@ import java.util.Random;
 public class Controller {
     private View gameView;
 
-    private Player[] players;
+    private static Player[] players;
     private PileOfCards drawPile;
     private PileOfCards discardPile;
 
@@ -34,7 +34,7 @@ public class Controller {
     }
 
 
-    public int currentPlayer(Player[] players) {
+    public static int currentPlayer(Player[] players) {
 
         int index = 0;
 
@@ -48,7 +48,7 @@ public class Controller {
     }
 
 
-    public void turnPassing(Player[] players){
+    public static void turnPassing(Player[] players){
 
         int check = currentPlayer(players);
         int index = currentPlayer(players);
@@ -85,7 +85,28 @@ public class Controller {
         }
     }
 
-    public Player[] getPlayers() {
+    public static Player[] getPlayers() {
         return players;
+    }
+
+    public static void removePlayer(){
+        int index = currentPlayer(players);
+        Player[] temp = new Player[players.length - 1];
+
+        // Copy the elements except the index
+        // from original array to the other array
+        for (int i = 0, k = 0; i < players.length; i++) {
+
+            // if the index is
+            // the removal element index
+            if (i == index) {
+                continue;
+            }
+
+            // if the index is not
+            // the removal element index
+            temp[k++] = players[i];
+        }
+        players = temp.clone();
     }
 }
