@@ -100,6 +100,63 @@ public class Player {
 
     }
 
+    public boolean isAllCardUp(){
+
+        int faceUpCard = 0;
+
+        for(int i=0; i <= 2;i++){
+            for (int j=0;j<=3;j++){
+                if(hand[i][j].isFaceUp()){
+                    faceUpCard++;
+                }
+            }
+        }
+
+        return faceUpCard == 6;
+    }
+
+    public int calculatePoints(){
+        int point = 0;
+
+        for(int i=0; i <= 2;i++){
+            for (int j=0;j<=3;j++){
+                if(hand[i][j].getCardNumber()==0){
+                    point++;
+                }
+                else if(hand[i][j].getCardNumber()==1)
+                    point = point-2;
+                else if(hand[i][j].getCardNumber()>=3 && hand[i][j].getCardNumber()<10)
+                    point = point+hand[i][j].getCardNumber()+1;
+                else if(hand[i][j].getCardNumber() == 10 || hand[i][j].getCardNumber() == 11)
+                    point = point+10;
+            }
+        }
+
+        if(hand[0][0].getCardNumber() == hand[1][0].getCardNumber())
+            point = point-hand[0][0].getCardNumber() - hand[1][0].getCardNumber();
+        if(hand[0][1].getCardNumber() == hand[1][1].getCardNumber())
+            point = point-hand[0][1].getCardNumber() - hand[1][1].getCardNumber();
+        if(hand[0][2].getCardNumber() == hand[1][2].getCardNumber())
+            point = point-hand[0][2].getCardNumber() - hand[1][2].getCardNumber();
+
+        return point;
+    }
+
+    public void DealCards(){
+
+        hand = new Card[2][3];
+        for(int i=0; i <= 2;i++){
+            for (int j=0;j<=3;j++){
+                hand[i][j] = new PileOfCards(playerNum,true).drawCard();
+            }
+        }
+
+
+
+    }
+
+
+
 
 
 
