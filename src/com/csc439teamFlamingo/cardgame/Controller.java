@@ -39,7 +39,7 @@ public class Controller {
         }
     }
 
-    public int currentPlayer(Player[] players) {
+    public static int currentPlayer(Player[] players) {
 
         int index = 0;
 
@@ -53,7 +53,7 @@ public class Controller {
     }
 
 
-    public void turnPassing(Player[] players){
+    public static void turnPassing(Player[] players){
 
         int check = currentPlayer(players);
         int index = currentPlayer(players);
@@ -90,7 +90,7 @@ public class Controller {
         }
     }
 
-    public Player[] getPlayers() {
+    public static Player[] getPlayers() {
         return players;
     }
 
