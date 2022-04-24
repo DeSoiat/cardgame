@@ -7,7 +7,7 @@ import java.util.Random;
 public class Controller {
     private View gameView;
 
-    private Player[] players;
+    public static Player[] players;
     private PileOfCards drawPile;
     private PileOfCards discardPile;
 
@@ -33,6 +33,11 @@ public class Controller {
 
     }
 
+    public static void scoreBoard(){
+        for (int i = 0; i <= players.length; i++){
+            System.out.println(players[i].getPoints() + " " + players[i].getPlayerNum());
+        }
+    }
 
     public int currentPlayer(Player[] players) {
 
