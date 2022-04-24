@@ -33,8 +33,13 @@ public class Controller {
 
     }
 
+    public static void scoreBoard(){
+        for (int i = 0; i <= players.length; i++){
+            System.out.println(players[i].getPoints() + " " + players[i].getPlayerNum());
+        }
+    }
 
-    public static int currentPlayer(Player[] players) {
+    public int currentPlayer(Player[] players) {
 
         int index = 0;
 
@@ -48,7 +53,7 @@ public class Controller {
     }
 
 
-    public static void turnPassing(Player[] players){
+    public void turnPassing(Player[] players){
 
         int check = currentPlayer(players);
         int index = currentPlayer(players);
@@ -85,7 +90,7 @@ public class Controller {
         }
     }
 
-    public static Player[] getPlayers() {
+    public Player[] getPlayers() {
         return players;
     }
 
