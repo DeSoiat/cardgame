@@ -27,15 +27,6 @@ public class Controller {
     }
 
     public void gameplayLoop() {
-        for(int hole = 0; hole < numHoles; hole++) {
-            int curPlayer = turnSetting();
-            for(int p = 0; p < players.length; p++) {
-                curPlayer = curPlayer % players.length;
-                players[curPlayer].displayHand();
-                players[curPlayer].action();
-                players[curPlayer].displayHand();
-            }
-        }
     }
 
     public int turnSetting(){
