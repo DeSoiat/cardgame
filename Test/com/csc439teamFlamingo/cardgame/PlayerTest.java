@@ -11,29 +11,26 @@ class PlayerTest {
         Player[] players = new Player[3];
         players[0] = new Player(0);
         players[0].setMyTurn(true);
-        assert (players[0].isMyTurn() == true);
+        assertTrue(players[0].isMyTurn());
         players[0].setMyTurn(false);
-        assert (players[0].isMyTurn()==false);
+        assertFalse(players[0].isMyTurn());
 
     }
 
 
     @Test
     void isMyTurn() {
-
         Player[] players = new Player[3];
         Card[]hand = new Card[0];
         players[0] = new Player(0);
         players[0].setMyTurn(true);
-        assert (players[0].isMyTurn() == true);
+        assertTrue (players[0].isMyTurn());
         players[0].setMyTurn(false);
-        assert (players[0].isMyTurn()==false);
-
+        assertFalse (players[0].isMyTurn());
     }
 
     @Test
     void displayHand() {
-
         Player[] players = new Player[3];
         Card[]hand = new Card[3];
         hand[0] = new Card(0,0,0);
@@ -41,9 +38,6 @@ class PlayerTest {
         hand[2] = new Card(0,0,2);
         players[0] = new Player(0);
         //players[0].displayHand();
-
-
-
     }
 
 }

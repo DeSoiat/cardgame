@@ -33,11 +33,6 @@ public class PileOfCards {
         return cards;
     }
 
-    public LinkedList<Card> returnDrawPile(){
-        return cards;
-    }
-
-
     public Card drawCard(){
 
         Card newCard = cards.getFirst();
@@ -65,10 +60,7 @@ public class PileOfCards {
     }
 
     public void displayDrawPile(){
-        System.out.print("displayDrawPile : ");
-        for(int i=0;i < cards.size();i++){
-            System.out.print(cards.get(i).getCardNumber()+" ");
-        }
+        System.out.print("displayDrawPile: " + cards.peekFirst());
     }
 
     public LinkedList<Card> getCards() {

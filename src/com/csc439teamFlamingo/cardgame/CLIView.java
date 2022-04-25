@@ -42,11 +42,36 @@ public class CLIView implements View {
         return -1;
     }
 
-    public String Action(){
+    @Override
+    public int getNumHoles() throws IllegalArgumentException {
+        try {
+            String numPlayers = getUserInput("How many holes: ");
+            if(numPlayers == null) {
+                throw new IllegalArgumentException("ERROR: NOTHING ENTERED IN NUMBER OF HOLES");
+            }
+            for(int x = 0; x < numPlayers.length(); x++) {
+                if(Character.isAlphabetic(numPlayers.charAt(x))) {
+                    throw new IllegalArgumentException("ERROR: NUMBER OF HOLES MUST BE A NUMBER");
+                }
+            }
+            if(Integer.parseInt(numPlayers) < 0) {
+                throw new IllegalArgumentException("ERROR: NEGATIVE NUMBER OF HOLES PROVIDED");
+            }
+            return Integer.parseInt(numPlayers);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 9;
+    }
+
+    public void displayBoard(PileOfCards draw, PileOfCards discard, Player player, int hole) {
+        System.out.println("HOLE " + (hole+1));
+        System.out.println(player);
+    }
+
+    public String Action() {
         String action = " ";
-        System.out.println("Action you can take ");
-        System.out.print("Hit, Stand, Quit");
-        System.out.println("Enter the action you wanna take : ");
+        System.out.print("Action you can take: Hit, Stand, Quit \nEnter the action you wanna take : ");
         Scanner in = new Scanner(System.in);
         if(in.next().equals("Hit"))
             action = "Hit";

@@ -10,10 +10,12 @@ public class Controller {
     private static Player[] players;
     private PileOfCards drawPile;
     private PileOfCards discardPile;
+    private int numHoles;
 
     public Controller(View view) {
         gameView = view;
         int playnum = view.displayTitleScreenAndGetPlayerCount();
+        numHoles = view.getNumHoles();
         players = new Player[playnum];
         for (int x = 0; x < playnum; x++) {
             players[x] = new Player(x+1);
@@ -21,9 +23,22 @@ public class Controller {
         drawPile = new PileOfCards(players.length, true);
         discardPile = new PileOfCards(0, false);
         dealCards();
+        gameplayLoop();
     }
 
-    public int turnSetting(Player[] players){
+    public void gameplayLoop() {
+        for(int hole = 0; hole < numHoles; hole++) {
+            int curPlayer = turnSetting();
+            for(int p = 0; p < players.length; p++) {
+                curPlayer = curPlayer % players.length;
+                players[curPlayer].displayHand();
+                players[curPlayer].action();
+                players[curPlayer].displayHand();
+            }
+        }
+    }
+
+    public int turnSetting(){
 
         int index = players.length;
         Random rand = new Random();

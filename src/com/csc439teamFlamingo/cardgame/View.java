@@ -5,4 +5,5 @@ package com.csc439teamFlamingo.cardgame;
  */
 public interface View {
     public int displayTitleScreenAndGetPlayerCount();
+    int getNumHoles();
 }
