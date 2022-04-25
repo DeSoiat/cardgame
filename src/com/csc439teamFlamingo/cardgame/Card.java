@@ -71,6 +71,15 @@ public class Card {
             return false;
     }
 
+    public Boolean isFaceUp(){
+        if(upORdown == 0)
+            return true;
+        else
+            return false;
+    }
+
+
+
     public int getSuit(){
         return suit;
     }
