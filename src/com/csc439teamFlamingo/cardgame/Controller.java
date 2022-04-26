@@ -1,5 +1,8 @@
 package com.csc439teamFlamingo.cardgame;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * This class contains all logic for the golf card game, rules for the game can be found here https://en.wikipedia.org/wiki/Golf_(card_game)
@@ -34,10 +37,44 @@ public class Controller {
     }
 
     public static void scoreBoard(){
+        Player[] scoreboardlist = new Player[players.length];
         for (int i = 0; i <= players.length; i++){
-            System.out.println(players[i].getPoints() + " " + players[i].getPlayerNum());
+            scoreboardlist[i] = players[i];
+        }
+        for (int i = 0; i < (scoreboardlist.length - 1); i++){
+            for (int j = 0; j < ((scoreboardlist.length - i) - 1); j++){
+                if (scoreboardlist[j].calculatePoints() < scoreboardlist[j + 1].calculatePoints()){
+                    Player temp = scoreboardlist[j];
+                    scoreboardlist[j] = scoreboardlist[j + 1];
+                    scoreboardlist[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < scoreboardlist.length; i++) {
+            System.out.println(scoreboardlist[i].calculatePoints() + " " + scoreboardlist[i].getPlayerNum());
         }
     }
+
+    public static void finalscoreBoard(){
+        Player[] scoreboardlist = new Player[players.length];
+        for (int i = 0; i <= players.length; i++){
+            scoreboardlist[i] = players[i];
+        }
+        for (int i = 0; i < (scoreboardlist.length - 1); i++){
+            for (int j = 0; j < ((scoreboardlist.length - i) - 1); j++){
+                if (scoreboardlist[j].calculatePoints() < scoreboardlist[j + 1].calculatePoints()){
+                    Player temp = scoreboardlist[j];
+                    scoreboardlist[j] = scoreboardlist[j + 1];
+                    scoreboardlist[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < scoreboardlist.length; i++) {
+            System.out.println("Player " + scoreboardlist[i].getPlayerNum() + " Won!");
+            System.out.println(scoreboardlist[i].calculatePoints() + " " + scoreboardlist[i].getPlayerNum());
+        }
+    }
+
 
     public static int currentPlayer(Player[] players) {
 
