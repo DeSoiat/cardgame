@@ -23,10 +23,6 @@ public class Controller {
         drawPile = new PileOfCards(players.length, true);
         discardPile = new PileOfCards(0, false);
         dealCards();
-        gameplayLoop();
-    }
-
-    public void gameplayLoop() {
     }
 
     public int turnSetting(){
