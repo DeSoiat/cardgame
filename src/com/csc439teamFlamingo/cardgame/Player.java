@@ -171,9 +171,7 @@ public class Player {
         return point;
     }
 
-    public int getPoints(){
-        return calculatePoints();
-    }
+
 
     public void DealCards(){
 
