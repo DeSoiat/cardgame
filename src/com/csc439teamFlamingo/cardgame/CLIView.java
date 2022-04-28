@@ -41,6 +41,27 @@ public class CLIView implements View {
         }
         return -1;
     }
+    @Override
+    public int getNumHoles() throws IllegalArgumentException {
+        try {
+            String numPlayers = getUserInput("How many holes: ");
+            if(numPlayers == null) {
+                throw new IllegalArgumentException("ERROR: NOTHING ENTERED IN NUMBER OF HOLES");
+            }
+            for(int x = 0; x < numPlayers.length(); x++) {
+                if(Character.isAlphabetic(numPlayers.charAt(x))) {
+                    throw new IllegalArgumentException("ERROR: NUMBER OF HOLES MUST BE A NUMBER");
+                }
+            }
+            if(Integer.parseInt(numPlayers) < 0) {
+                throw new IllegalArgumentException("ERROR: NEGATIVE NUMBER OF HOLES PROVIDED");
+            }
+            return Integer.parseInt(numPlayers);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 9;
+    }
 
     public String Action(){
         String action = " ";
