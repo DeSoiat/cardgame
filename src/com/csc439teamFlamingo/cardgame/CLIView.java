@@ -45,7 +45,7 @@ public class CLIView implements View {
     public String Action(){
         String action = " ";
         System.out.println("Action you can take ");
-        System.out.print("Hit, Stand, Quit");
+        System.out.print("Hit, Stand, Quit, ScoreBoard");
         System.out.println("Enter the action you wanna take : ");
         Scanner in = new Scanner(System.in);
         if(in.next().equals("Hit"))
@@ -55,6 +55,10 @@ public class CLIView implements View {
         else if(in.next().equals("Quit")) {
             action = "Quit";
             Controller.removePlayer();
+        }
+        else if(in.next().equals("ScoreBoard")) {
+            action = "ScoreBoard";
+            Controller.scoreBoard();
         }
         else
             action = "invalid move";
