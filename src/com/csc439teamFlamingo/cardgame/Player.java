@@ -13,6 +13,10 @@ public class Player {
         playerNum = player;
     }
 
+    public int getPlayerNum() {
+        return playerNum;
+    }
+
     public void draw(PileOfCards pile, int row, int column) {
         hand[row][column] = pile.drawCard();
     }
@@ -75,7 +79,7 @@ public class Player {
     public String Action(){
         String action = " ";
         System.out.println("Action you can take");
-        System.out.print("Hit, Stand, Quit");
+        System.out.print("Hit, Stand, Quit, ScoreBoard");
         System.out.println("Enter the action you wanna take : ");
         Scanner in = new Scanner(System.in);
         if(in.next().equals("Hit"))
@@ -85,6 +89,10 @@ public class Player {
         else if(in.next().equals("Quit")) {
             action = "Quit";
             Controller.removePlayer();
+        }
+        else if(in.next().equals("ScoreBoard")) {
+            action = "ScoreBoard";
+            Controller.scoreBoard();
         }
         else
             action = "invalid move";
@@ -162,6 +170,7 @@ public class Player {
 
         return point;
     }
+
 
     public void DealCards(){
 
