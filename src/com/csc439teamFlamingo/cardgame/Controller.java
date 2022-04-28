@@ -24,6 +24,7 @@ public class Controller {
         drawPile = new PileOfCards(players.length, true);
         discardPile = new PileOfCards(0, false);
         dealCards();
+        gameView.getNumHoles();
     }
 
     public int turnSetting(Player[] players){

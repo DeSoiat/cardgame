@@ -172,7 +172,6 @@ public class Player {
     }
 
 
-
     public void DealCards(){
 
         hand = new Card[2][3];
